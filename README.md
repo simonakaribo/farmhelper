@@ -7,7 +7,7 @@ FarmHelper is a lightweight Python library that provides simple utility function
 Clone this repository and import the `farmhelper` package directly:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/farmhelper.git
+git clone https://github.com/simonakaribo/farmhelper.git
 cd farmhelper
 python3 test_farmhelper.py
 ```
@@ -16,7 +16,7 @@ python3 test_farmhelper.py
 
 ```python
 from farmhelper import acres_to_hectares, estimate_yield, fertilizer_needed, days_to_harvest
-from datetime import date
+from datetime import date, timedelta
 
 # Convert 2 acres to hectares
 print(acres_to_hectares(2))
@@ -27,8 +27,17 @@ print(estimate_yield(3, 15))
 # Calculate fertilizer needed for a 2-hectare farm at 50kg/hectare
 print(fertilizer_needed(2, 50))
 
-# Days remaining until harvest
-print(days_to_harvest(date(2026, 8, 1), 90))
+# Days remaining until harvest (planted 30 days ago, 90-day crop)
+print(days_to_harvest(date.today() - timedelta(days=30), 90))
+```
+
+**Example output:**
+
+```
+0.809
+45
+100
+60
 ```
 
 ## Modules
